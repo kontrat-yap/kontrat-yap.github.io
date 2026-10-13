@@ -14,11 +14,13 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-      - name: Android SDK details
+      - name: Install SDK components
         run: |
-          echo "ANDROID_HOME=$ANDROID_HOME"
-          command -v sdkmanager
-      - run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+          SDKMGR=$(find "$ANDROID_HOME/cmdline-tools" -type f -name sdkmanager | head -n 1)
+          echo "SDK manager: $SDKMGR"
+          test -n "$SDKMGR"
+          yes | "$SDKMGR" --licenses > /dev/null || true
+          "$SDKMGR" 'platforms;android-35' 'build-tools;35.0.0'
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.11.1'
