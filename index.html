@@ -25,6 +25,9 @@ input,select,textarea{width:100%;padding:10px;border:1px solid var(--bd);border-
 #doc p{margin:0 0 8px;text-align:justify}
 #doc h4{text-align:center;font-size:14px;margin:14px 0 8px;text-decoration:underline}#doc table{width:100%;border-collapse:collapse;margin-bottom:10px}#doc td{border:1px solid #111;padding:4px 6px;vertical-align:top;font-size:13px}#doc td:first-child{width:36%;font-weight:bold}#doc .sig{break-inside:avoid;display:flex;justify-content:space-between;gap:16px;margin-top:36px;text-align:center}
 #doc .sig div{flex:1;border-top:1px solid #111;padding-top:6px}
+#doc .sig.sig-three{flex-wrap:wrap}
+#doc .sig.sig-three>div{flex:0 0 calc(50% - 8px)}
+#doc .sig.sig-three>div:nth-child(3){margin:18px auto 0}
 .ck{display:flex;gap:8px;align-items:flex-start;color:var(--tx);font-size:14px;margin:6px 0}.ck input{width:auto;margin-top:4px}.box{border:1px solid #111;padding:8px;margin:8px 0}#doc .pb{border-top:1px dashed #999;margin-top:18px;padding-top:10px}.small{font-size:12px;color:var(--mut);margin:10px 0 0}
 @media print{body{background:#fff}.ui,.pn{display:none!important}#pv{overflow:visible;border:0;background:none;padding:0}#doc{zoom:1!important;width:auto}.page{width:auto;min-height:0;padding:0;box-shadow:none;break-after:page;font-size:11pt}.page:last-of-type{break-after:auto}.wrap{padding:0;max-width:none}#doc{border:0;padding:0;font-size:11pt}#doc p{break-inside:avoid}#doc .pb{break-before:page;border:0;margin:0;padding:0}@page{margin:20mm}}
 </style></head><body><div class="wrap">
@@ -58,7 +61,7 @@ function b(x){return "<b>"+esc(x)+"</b>"}
 function pa(){var a=[S.pNeigh,S.pStreet,S.pNo,S.pCity].filter(function(x){return x&&x.trim()}).join(", ");return a?b(a):"<b>………</b>"}
 function wd(n){var u=["sıfır","bir","iki","üç","dört","beş","altı","yedi","sekiz","dokuz"],t=["","on","yirmi","otuz","kırk","elli","altmış","yetmiş","seksen","doksan"];return n<10?u[n]:t[Math.floor(n/10)]+(n%10?" "+u[n%10]:"")}
 function tr(a,c){return "<tr><td>"+a+"</td><td>"+c+"</td></tr>"}
-function sg(l){return '<div class="sig">'+l.map(function(x){return "<div>"+x+"<br>İmza</div>"}).join("")+'</div><p style="margin-top:8px">Tarih: '+(S.date?dt(S.date):"………")+"</p>"}
+function sg(l){return '<div class="sig'+(l.length===3?' sig-three':'')+'">'+l.map(function(x){return "<div>"+x+"<br>İmza</div>"}).join("")+'</div><p style="margin-top:8px">Tarih: '+(S.date?dt(S.date):"………")+"</p>"}
 function lease(){
 var kef=S.kefil=="Var",tn="KİRACI<br>"+esc(S.tName||"")+"<br>"+esc(S.tTc||""),ln="KİRALAYAN<br>"+esc(S.lName||"")+"<br>"+esc(S.lTc||""),kn="KEFİL<br>"+esc(S.kName||"")+"<br>"+esc(S.kTc||""),L=[tn,ln];if(kef)L.push(kn);
 var end=S.start?addM(S.start,S.months):"",r=parseFloat(S.rent);
