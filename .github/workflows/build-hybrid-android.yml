@@ -1,0 +1,43 @@
+name: Build Kontrat Yap Android APK
+on:
+  push:
+    branches: [android-hybrid-apk]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.11.1'
+      - name: Build debug APK
+        working-directory: android-apk
+        run: gradle :app:assembleDebug --no-daemon --stacktrace
+      - name: Validate APK fallback HTML
+        run: |
+          test -s android-apk/app/build/outputs/apk/debug/app-debug.apk
+          unzip -p android-apk/app/build/outputs/apk/debug/app-debug.apk assets/index.html | grep -q 'Efe Özbilgin tarafından yapıldı'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: KontratYap-APK
+          path: android-apk/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 30
+      - name: Publish public APK release
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create v1.0.0-hybrid android-apk/app/build/outputs/apk/debug/app-debug.apk#KontratYap.apk \
+            --title 'Kontrat Yap Android v1.0 (online + offline)' \
+            --notes 'Açılışta web sitesinin güncel HTML sürümünü indirir. Çevrimdışı son indirilen ya da APK içindeki sürümü kullanır. Yerel PDF yazdırma desteklidir.' \
+            --target "$GITHUB_SHA" || \
+          gh release upload v1.0.0-hybrid android-apk/app/build/outputs/apk/debug/app-debug.apk#KontratYap.apk --clobber
