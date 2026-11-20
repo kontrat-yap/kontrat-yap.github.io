@@ -21,15 +21,20 @@ input,select,textarea{width:100%;padding:10px;border:1px solid var(--bd);border-
 .note{background:var(--warn);color:var(--wtx);border-radius:10px;padding:10px 12px;font-size:14px;margin-bottom:12px}
 .note.bad{background:var(--bad);color:var(--btx)}
 .btn{width:100%;padding:14px;border:0;border-radius:12px;background:var(--ac);color:var(--acx);font:inherit;font-weight:700;font-size:16px}
-#pv{overflow:auto;border:1px solid var(--bd);border-radius:8px;background:rgba(128,128,128,.25);padding:8px 0}#doc{width:794px;margin:0 auto;color:#111;font:14px/1.55 "Times New Roman",Georgia,serif}.page{background:#fff;min-height:1123px;padding:56px 56px 48px;margin:0;box-shadow:0 2px 10px rgba(0,0,0,.3)}.pn{text-align:center;font:12px system-ui,sans-serif;color:var(--mut);margin:4px 0 14px}.zc{display:flex;gap:8px;align-items:center;margin-bottom:8px}.zc button{padding:8px 14px;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:8px;font:inherit}.zc span{min-width:52px;text-align:center}#doc h3{text-align:center;font-size:17px;margin:0 0 14px;letter-spacing:.5px}
-#doc p{margin:0 0 8px;text-align:justify}
-#doc h4{text-align:center;font-size:14px;margin:14px 0 8px;text-decoration:underline}#doc table{width:100%;border-collapse:collapse;margin-bottom:10px}#doc td{border:1px solid #111;padding:4px 6px;vertical-align:top;font-size:13px}#doc td:first-child{width:36%;font-weight:bold}#doc .sig{break-inside:avoid;display:flex;justify-content:space-between;gap:16px;margin-top:36px;text-align:center}
-#doc .sig div{flex:1;border-top:1px solid #111;padding-top:6px}
-#doc .sig.sig-three{flex-wrap:wrap}
-#doc .sig.sig-three>div{flex:0 0 calc(50% - 8px)}
-#doc .sig.sig-three>div:nth-child(3){margin:18px auto 0}
-.ck{display:flex;gap:8px;align-items:flex-start;color:var(--tx);font-size:14px;margin:6px 0}.ck input{width:auto;margin-top:4px}.box{border:1px solid #111;padding:8px;margin:8px 0}#doc .pb{border-top:1px dashed #999;margin-top:18px;padding-top:10px}.small{font-size:12px;color:var(--mut);margin:10px 0 0}
-@media print{body{background:#fff}.ui,.pn{display:none!important}#pv{overflow:visible;border:0;background:none;padding:0}#doc{zoom:1!important;width:auto}.page{width:auto;min-height:0;padding:0;box-shadow:none;break-after:page;font-size:11pt}.page:last-of-type{break-after:auto}.wrap{padding:0;max-width:none}#doc{border:0;padding:0;font-size:11pt}#doc p{break-inside:avoid}#doc .pb{break-before:page;border:0;margin:0;padding:0}@page{margin:20mm}}
+#pv{overflow:auto;border:1px solid var(--bd);border-radius:8px;background:rgba(128,128,128,.25);padding:8px 0}#dw{margin:0 auto;overflow:hidden}#doc{transform-origin:0 0}
+.doc{width:210mm;color:#111;font:14px/1.55 "Times New Roman",Georgia,serif}
+.page{display:block;background:#fff;width:210mm;height:297mm;padding:15mm;margin:0;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.3)}.pc{display:flow-root}.pc>:first-child{margin-top:0}
+#ms{position:absolute;left:-10000px;top:0;visibility:hidden;pointer-events:none}
+.pn{text-align:center;font:12px system-ui,sans-serif;color:var(--mut);margin:4px 0 14px}.zc{display:flex;gap:8px;align-items:center;margin-bottom:8px}.zc button{padding:8px 14px;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:8px;font:inherit}.zc span{min-width:52px;text-align:center}.doc h3{text-align:center;font-size:17px;margin:0 0 14px;letter-spacing:.5px}
+.doc p{margin:0 0 8px;text-align:justify}
+.doc h4{text-align:center;font-size:14px;margin:14px 0 8px;text-decoration:underline}.doc table{width:100%;border-collapse:collapse;margin-bottom:10px}.doc td{border:1px solid #111;padding:4px 6px;vertical-align:top;font-size:13px}.doc td:first-child{width:36%;font-weight:bold}.doc .sig{display:flex;justify-content:space-between;gap:16px;margin-top:36px;text-align:center}
+.doc .sig div{flex:1;border-top:1px solid #111;padding-top:6px}
+.doc .sig.sig-three{flex-wrap:wrap}
+.doc .sig.sig-three>div{flex:0 0 calc(50% - 8px)}
+.doc .sig.sig-three>div:nth-child(3){margin:18px auto 0}
+.ck{display:flex;gap:8px;align-items:flex-start;color:var(--tx);font-size:14px;margin:6px 0}.ck input{width:auto;margin-top:4px}.box{border:1px solid #111;padding:8px;margin:8px 0}.small{font-size:12px;color:var(--mut);margin:10px 0 0}
+@page{size:A4;margin:0}
+@media print{html,body{background:#fff;margin:0;padding:0}:root{padding:0}.ui,.pn{display:none!important}#pv{overflow:visible;border:0;border-radius:0;background:none;padding:0}#dw{width:auto!important;height:auto!important;overflow:visible}#doc{transform:none!important}.page{box-shadow:none;break-after:page;page-break-after:always}.page:last-of-type{break-after:auto;page-break-after:auto}.wrap{padding:0;max-width:none}}
 </style></head><body><div class="wrap">
 <div class="ui">
 <h1>Kira Belgesi Hazırla</h1><p style="margin:-8px 0 14px;font-size:12px;color:var(--mut)">Efe Özbilgin tarafından yapıldı</p>
@@ -43,9 +48,10 @@ input,select,textarea{width:100%;padding:10px;border:1px solid var(--bd);border-
 </div><div class="card" id="kf" style="display:none"><h2>Kefil bilgileri</h2><label>Ad soyad</label><input data-k="kName"><label>T.C. kimlik no</label><input data-k="kTc" inputmode="numeric" maxlength="11"><label>Adres</label><textarea rows="2" data-k="kAddr"></textarea><div class="row"><div><label>Azami kefalet tutarı (TL)</label><input type="number" data-k="kMax" inputmode="decimal"></div><div><label>Kefalet türü</label><select data-k="kType"><option>müteselsil kefil</option><option>adi kefil</option></select></div></div><label>Medeni hal</label><select data-k="kMarried"><option>Bekar</option><option>Evli</option></select></div><div class="card" data-d="1"><h2>Özel koşullar</h2><div id="chks"></div><label>Demirbaş / eşya listesi (isteğe bağlı)</label><textarea rows="2" data-k="fixtures" placeholder="Buzdolabı, kombi, 2 klima"></textarea><label>Ek özel koşullar (her satır bir madde)</label><textarea rows="3" data-k="special"></textarea></div>
 <div class="card" data-d="2"><h2>Tahliye bilgileri</h2><label>Taşınmazın kiracıya teslim tarihi</label><input type="date" data-k="handover"><label>Taahhüt edilen tahliye tarihi</label><input type="date" data-k="vacate"></div>
 <h1 style="margin-top:18px">Önizleme</h1><div class="zc"><button id="zo">−</button><span id="zp">100%</span><button id="zi">+</button><button id="zf">Sığdır</button></div></div>
-<div id="pv"><div id="doc"></div></div>
+<div id="pv"><div id="dw"><div id="doc" class="doc"></div></div></div>
 <div class="ui"><p class="small">Bu araç genel bir taslak üretir, hukuki danışmanlık değildir. Önemli durumlarda avukata danışın. Damga vergisi yükümlülüğü sözleşmenin türüne (ör. gerçek kişi konut kirası) göre değişebilir; kira bildirimini e-Devlet üzerinden yapmayı unutmayın.</p><br><button class="btn" id="pdf">PDF olarak kaydet / yazdır</button><p class="small">Açılan pencerede "PDF olarak kaydet" seçin.</p></div>
 </div>
+<div id="ms" class="doc" aria-hidden="true"></div>
 <script>
 var tab=1,S={};
 var $=function(s){return document.querySelector(s)};
@@ -53,7 +59,8 @@ var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&
 function v(k,f){var x=(S[k]||"").trim();return x?"<b>"+esc(f?f(x):x)+"</b>":"<b>………</b>"}
 function dt(x){var p=x.split("-");return p.length==3?p[2]+"."+p[1]+"."+p[0]:x}
 function tl(x){var n=parseFloat(x);return isNaN(n)?x:n.toLocaleString("tr-TR",{minimumFractionDigits:2})+" TL"}
-function addM(x,m){var d=new Date(x);if(isNaN(d))return"";d.setMonth(d.getMonth()+parseInt(m||0));d.setDate(d.getDate()-1);return d.toISOString().slice(0,10)}
+function addM(x,m){var p=/^(\d{4})-(\d{2})-(\d{2})$/.exec(x||"");m=parseInt(m,10);if(!p||!(m>0)||m>1200)return"";var y=+p[1],mo=+p[2]-1+m,d=+p[3],last=new Date(Date.UTC(y,mo+1,0)).getUTCDate();return new Date(Date.UTC(y,mo,d>last?last:d-1)).toISOString().slice(0,10)}
+function ek(s,t){var w=(s||"").trim().toLocaleLowerCase("tr").replace(/[^a-zçğıöşüâîû]+$/,"");if(!w)return t=="lok"?"’da":"’ın";var vs=w.replace(/â/g,"a").replace(/[îû]/g,"i").match(/[aeıioöuü]/g),lv=vs?vs[vs.length-1]:"e",c=w.slice(-1);if(t=="lok")return "’"+(/[fstkçşhp]/.test(c)?"t":"d")+(/[aıou]/.test(lv)?"a":"e");return "’"+(/[aeıioöuüâîû]/.test(c)?"n":"")+{a:"ı",ı:"ı",e:"i",i:"i",o:"u",u:"u",ö:"ü",ü:"ü"}[lv]+"n"}
 function sig(a,b){return '<div class="sig"><div>'+a+'<br>İmza</div><div>'+b+'<br>İmza</div></div>'}
 var CL=["Alt kira / ortak alma yasağı, aile dışında kalma yasağı","Yönetim planı ve site/bina kurallarına uyma","Kira ödeme günü ve IBAN","Kira gecikmesinde tüm dönem kiralarının muaccel olması (tartışmalı)","Aidat, kapıcı, yakıt ve genel giderler kiracıya ait","Kapı, pencere, tesisat sağlam teslim","Onarımın 10 gün içinde yapılması","Abonelikler kiracı adına, çıkışta kapatma","Yerleşim yeri adresi bildirimi","Kira süresi ve otomatik uzama","Kira artışı (TBK m.344)","Depozito (TBK m.342)","Yetkili mahkeme"];
 S.chk=[0,1,2,4,5,6,7,8,9,10,11,12];
@@ -61,7 +68,8 @@ function b(x){return "<b>"+esc(x)+"</b>"}
 function pa(){var a=[S.pNeigh,S.pStreet,S.pNo,S.pCity].filter(function(x){return x&&x.trim()}).join(", ");return a?b(a):"<b>………</b>"}
 function wd(n){var u=["sıfır","bir","iki","üç","dört","beş","altı","yedi","sekiz","dokuz"],t=["","on","yirmi","otuz","kırk","elli","altmış","yetmiş","seksen","doksan"];return n<10?u[n]:t[Math.floor(n/10)]+(n%10?" "+u[n%10]:"")}
 function tr(a,c){return "<tr><td>"+a+"</td><td>"+c+"</td></tr>"}
-function sg(l){return '<div class="sig'+(l.length===3?' sig-three':'')+'">'+l.map(function(x){return "<div>"+x+"<br>İmza</div>"}).join("")+'</div><p style="margin-top:8px">Tarih: '+(S.date?dt(S.date):"………")+"</p>"}
+function sg(l){return '<div class="sgb"><div class="sig'+(l.length===3?' sig-three':'')+'">'+l.map(function(x){return "<div>"+x+"<br>İmza</div>"}).join("")+'</div><p style="margin-top:8px">Yer / Tarih: '+(S.city&&S.city.trim()?esc(S.city.trim()):"………")+", "+(S.date&&S.date.trim()?esc(dt(S.date.trim())):"………")+"</p></div>"}
+var SEP="\u0001",STAMP={"kiracı":"Kiracı tarafından ödenir","kiraya veren":"Kiralayan tarafından ödenir","taraflarca yarı yarıya":"Taraflarca yarı yarıya ödenir"};
 function lease(){
 var kef=S.kefil=="Var",tn="KİRACI<br>"+esc(S.tName||"")+"<br>"+esc(S.tTc||""),ln="KİRALAYAN<br>"+esc(S.lName||"")+"<br>"+esc(S.lTc||""),kn="KEFİL<br>"+esc(S.kName||"")+"<br>"+esc(S.kTc||""),L=[tn,ln];if(kef)L.push(kn);
 var end=S.start?addM(S.start,S.months):"",r=parseFloat(S.rent);
@@ -88,30 +96,47 @@ tr("Kiralayan",v("lName"))+tr("Kiralayanın T.C. Kimlik No",v("lTc"))+tr("Kirala
 tr("Kiracı",v("tName"))+tr("Kiracının Kimlik/Vergi No’su",v("tTc"))+tr("Kiracının Adresi",v("tAddr"))+
 tr("Sözleşme Başlangıç Tarihi",v("start",dt))+tr("Sözleşme Süresi",v("months")+" ay"+(end?" (bitiş: "+dt(end)+")":""))+
 tr("1 Yıllık Kira Bedeli",isNaN(r)?"<b>………</b>":b(tl(r*12)))+tr("1 Aylık Kira Bedeli",v("rent",tl))+
-tr("Kira Bedelinin Ödeme Şekli","Banka hesap numarasına havale")+tr("Kiralananı Kullanım Şekli",v("pType"))+tr("Kiralananın Durumu",v("pDesc"))+
+tr("Kira Bedelinin Ödeme Şekli","Banka hesap numarasına havale")+tr("Damga Vergisi",S.stamp?b(STAMP[S.stamp]||S.stamp):"<b>………</b>")+tr("Kiralananı Kullanım Şekli",v("pType"))+tr("Kiralananın Durumu",v("pDesc"))+
 tr("Kiralananla Birlikte Teslim Edilen Demirbaşlar",S.fixtures&&S.fixtures.trim()?b(S.fixtures):"<b>………</b>")+"</table>"+sg(L);
-h+='<div class="pb"><h4>GENEL KOŞULLAR</h4>'+G.map(function(g,i){return "<p><b>"+(i+1)+".</b> "+g+"</p>"}).join("")+sg(L)+"</div>";
-h+='<div class="pb"><h4>ÖZEL KOŞULLAR</h4>'+(O.length?O.map(function(o,i){return "<p><b>"+(i+1)+".</b> "+o+"</p>"}).join(""):"<p>Özel koşul belirlenmemiştir.</p>")+
+h+=SEP+'<h4>GENEL KOŞULLAR</h4>'+G.map(function(g,i){return "<p><b>"+(i+1)+".</b> "+g+"</p>"}).join("")+sg(L);
+h+=SEP+'<h4>ÖZEL KOŞULLAR</h4>'+(O.length?O.map(function(o,i){return "<p><b>"+(i+1)+".</b> "+o+"</p>"}).join(""):"<p>Özel koşul belirlenmemiştir.</p>")+
 "<p>İşbu, "+G.length+" ("+wd(G.length)+") genel ve "+O.length+" ("+wd(O.length)+") özel koşuldan oluşan sözleşmeyi, hür iradelerimizle iki nüsha olarak imzaladık.</p>"+sg(L);
-if(kef){h+='</div><div class="pb"><h4>KEFALET</h4><p>Ben '+v("kName")+' (T.C. '+v("kTc")+', adres: '+v("kAddr")+'), kiracı '+v("tName")+'’ın bu sözleşmeden doğan kira bedeli, aidat, gider, hasar, gecikme faizi, takip masrafı ve diğer tüm borçları için, azami '+v("kMax",tl)+' tutara kadar, '+v("kType")+' olarak kefil olduğumu; kefalet tarihinin '+v("date",dt)+' olduğunu kabul ve beyan ederim.</p><p class="box"><b>Kefilin el yazısıyla yazacağı ifade (TBK m.583):</b> “… TL azami miktar ile … kefil olarak, … tarihinde kefil oldum.”<br><br>______________________________________</p>';
+if(kef){h+=SEP+'<h4>KEFALET</h4><p>Ben '+v("kName")+' (T.C. '+v("kTc")+', adres: '+v("kAddr")+'), kiracı '+v("tName")+ek(S.tName,"gen")+' bu sözleşmeden doğan kira bedeli, aidat, gider, hasar, gecikme faizi, takip masrafı ve diğer tüm borçları için, azami '+v("kMax",tl)+' tutara kadar, '+v("kType")+' olarak kefil olduğumu; kefalet tarihinin '+v("date",dt)+' olduğunu kabul ve beyan ederim.</p><p class="box"><b>Kefilin el yazısıyla yazacağı ifade (TBK m.583):</b> “… TL azami miktar ile … kefil olarak, … tarihinde kefil oldum.”<br><br>______________________________________</p>';
 if(S.kMarried=="Evli")h+='<p><b>Eşin rızası (TBK m.584):</b> Kefilin eşi olarak bu kefalete yazılı rıza gösterdiğimi beyan ederim.<br>Ad soyad / T.C. / imza: ______________________________</p>';h+=sg(L)}
 else h+="<p><b>Kefil yoktur.</b></p>";
-return h+"</div>"}
+return h}
 function esc2(x){return x.indexOf("<")>-1?x:esc(x)}
 function vac(){
 return '<h3>TAHLİYE TAAHHÜTNAMESİ</h3>'+
 '<p>Ben '+v("tName")+' (T.C. '+v("tTc")+'), '+v("lName")+' (T.C. '+v("lTc")+') ile aramdaki kira ilişkisi kapsamında kiracı olarak kullandığım, '+pa()+' adresindeki taşınmazı, <b>'+v("handover",dt)+'</b> tarihinde teslim aldım.</p>'+
 '<p>Bu taahhütname, kiralananın tesliminden sonra, kendi özgür iradem ile düzenlenmiştir (TBK m.352/1). Söz konusu taşınmazı '+v("vacate",dt)+' tarihinde, ayrıca bir ihtar veya tebligata gerek kalmaksızın, kira, aidat, elektrik, su, doğalgaz ve benzeri tüm borçlarımı ödenmiş ve taşınmazı boş, kullanıma elverişli şekilde kiraya verene teslim etmeyi gayrikabili rücu kabul ve taahhüt ederim.</p>'+
 '<p>Taşınmazı bu tarihte tahliye etmediğim takdirde, kiraya verenin İcra ve İflas Kanunu m.272 vd. uyarınca tahliye talebinde bulunabileceğini ve yasal yollara başvurabileceğini kabul ederim. Tebligat adresim: '+v("tAddr")+'.</p>'+
-'<p>İş bu taahhütname '+v("city")+'’da '+v("date",dt)+' tarihinde düzenlenmiş ve imzalanmıştır.</p>'+
+'<p>İş bu taahhütname '+v("city")+ek(S.city,"lok")+' '+v("date",dt)+' tarihinde düzenlenmiş ve imzalanmıştır.</p>'+
 sig("Taahhüt eden (kiracı)<br>"+esc(S.tName||""),"Kiraya veren<br>"+esc(S.lName||""))}
 function iso(x){var m=/^(\d{1,2})[.\/](\d{1,2})[.\/](\d{4})$/.exec((x||"").trim());return m?m[3]+"-"+("0"+m[2]).slice(-2)+"-"+("0"+m[1]).slice(-2):(x||"")}
-function pages(h){var p=h.split('<div class="pb">'),n=p.length;return p.map(function(x,i){if(i>0)x=x.replace(/<\/div>\s*$/,"");return '<section class="page">'+x+'</section><div class="pn">Sayfa '+(i+1)+' / '+n+'</div>'}).join("")}
+// Her bölümü gerçek A4 sayfalarına böler: bloklar ekranda ölçülür, sığmayan blok sonraki sayfaya geçer.
+function paginate(html){
+var ms=$("#ms"),src=document.createElement("div"),out=[],pg,pc,lim;src.innerHTML=html;
+function np(){ms.innerHTML='<section class="page"><div class="pc"></div></section>';pg=ms.firstChild;pc=pg.firstChild;var cs=getComputedStyle(pg);lim=pg.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom)-6}
+function over(){return pc.offsetHeight>lim}
+function flush(){out.push(pc.innerHTML);np()}
+function splitTable(t){var rows=[].slice.call(t.rows);pc.removeChild(t);while(rows.length){var part=t.cloneNode(false),tb=document.createElement("tbody"),n=0;part.appendChild(tb);pc.appendChild(part);while(rows.length){tb.appendChild(rows[0]);if(over()&&(n>0||pc.childNodes.length>1)){tb.removeChild(rows[0]);break}rows.shift();n++}if(!n)pc.removeChild(part);if(rows.length)flush()}}
+np();if(!(lim>100)){ms.innerHTML="";return [html]}
+[].slice.call(src.childNodes).forEach(function(el){
+if(el.nodeType!=1){if(!el.textContent.trim())return;var p=document.createElement("p");p.appendChild(el);el=p}
+pc.appendChild(el);if(!over())return;
+if(el.tagName=="TABLE")return splitTable(el);
+if(pc.childNodes.length<2)return;
+pc.removeChild(el);var keep=[];if(el.classList.contains("sgb")&&pc.childNodes.length>1&&pc.lastChild.tagName=="P")keep.push(pc.removeChild(pc.lastChild));while(pc.childNodes.length>1&&/^H[1-6]$/.test(pc.lastChild.tagName))keep.unshift(pc.removeChild(pc.lastChild));
+flush();keep.forEach(function(k){pc.appendChild(k)});pc.appendChild(el)});
+out.push(pc.innerHTML);ms.innerHTML="";return out}
+function pages(h){var all=[];h.split(SEP).forEach(function(s){all=all.concat(paginate(s))});var n=all.length;return all.map(function(x,i){return '<section class="page"><div class="pc">'+x+'</div></section><div class="pn">Sayfa '+(i+1)+' / '+n+'</div>'}).join("")}
 var Zm=1,auto=true;
-function setZ(z){Zm=Math.max(.3,Math.min(2,z));$("#doc").style.zoom=Zm;$("#zp").textContent=Math.round(Zm*100)+"%"}
-function fit(){auto=true;setZ(($("#pv").clientWidth-6)/794)}
+function setZ(z){Zm=Math.max(.3,Math.min(2,z));var d=$("#doc"),w=$("#dw");d.style.transform="scale("+Zm+")";w.style.width=d.offsetWidth*Zm+"px";w.style.height=d.offsetHeight*Zm+"px";$("#zp").textContent=Math.round(Zm*100)+"%"}
+function fit(){auto=true;setZ(($("#pv").clientWidth-6)/$("#doc").offsetWidth)}
+var rq=0;function later(){if(!rq)rq=requestAnimationFrame(function(){rq=0;render()})}
 function render(){
-$("#doc").innerHTML=pages(tab==1?lease():vac());
+$("#doc").innerHTML=pages(tab==1?lease():vac());setZ(Zm);
 var w=$("#warn"),h="";
 if(tab==2){
 h='<div class="note">Tahliye taahhüdü, kira sözleşmesiyle birlikte veya kiralananın tesliminden önce alınırsa geçersizdir (TBK m.352/1). Teslimden sonra yazılı verilmeli ve tarih ile imza kiracıya ait olmalıdır.</div>';
@@ -123,9 +148,9 @@ function setTab(n){tab=n;$("#t1").className=n==1?"on":"";$("#t2").className=n==2
 $("#t1").onclick=function(){setTab(1)};$("#t2").onclick=function(){setTab(2)};
 document.querySelectorAll("[data-k]").forEach(function(e){
 if(e.value)S[e.dataset.k]=e.value;
-e.addEventListener("input",function(){S[e.dataset.k]=e.value;render()})});
-$("#pdf").onclick=function(){try{window.print()}catch(e){alert("Yazdırma bu görünümde açılamadı. Sayfayı tarayıcıda açıp tekrar deneyin.")}};
-var cb=$("#chks");CL.forEach(function(t,i){var l=document.createElement("label");l.className="ck";l.innerHTML='<input type="checkbox" '+(S.chk.indexOf(i)>-1?"checked":"")+'><span>'+t+"</span>";l.firstChild.onchange=function(){S.chk=[];cb.querySelectorAll("input").forEach(function(c,j){if(c.checked)S.chk.push(j)});render()};cb.appendChild(l)});
-$("#zo").onclick=function(){auto=false;setZ(Zm-.1)};$("#zi").onclick=function(){auto=false;setZ(Zm+.1)};$("#zf").onclick=fit;window.addEventListener("resize",function(){if(auto)fit()});
+e.addEventListener("input",function(){S[e.dataset.k]=e.value;later()})});
+$("#pdf").onclick=function(){try{render();window.print()}catch(e){alert("Yazdırma bu görünümde açılamadı. Sayfayı tarayıcıda açıp tekrar deneyin.")}};
+var cb=$("#chks");CL.forEach(function(t,i){var l=document.createElement("label");l.className="ck";l.innerHTML='<input type="checkbox" '+(S.chk.indexOf(i)>-1?"checked":"")+'><span>'+t+"</span>";l.firstChild.onchange=function(){S.chk=[];cb.querySelectorAll("input").forEach(function(c,j){if(c.checked)S.chk.push(j)});later()};cb.appendChild(l)});
+$("#zo").onclick=function(){auto=false;setZ(Zm-.1)};$("#zi").onclick=function(){auto=false;setZ(Zm+.1)};$("#zf").onclick=fit;window.addEventListener("resize",function(){if(auto)fit()});window.addEventListener("beforeprint",render);
 render();fit();
 </script></body></html>
