@@ -25,7 +25,7 @@ input,select,textarea{width:100%;padding:10px;border:1px solid var(--bd);border-
 .note.bad{background:var(--bad);color:var(--btx)}
 .btn{width:100%;padding:14px;border:0;border-radius:12px;background:var(--ac);color:var(--acx);font:inherit;font-weight:700;font-size:16px}
 #pv{overflow:auto;border:1px solid var(--bd);border-radius:8px;background:rgba(128,128,128,.25);padding:8px 0}#dw{margin:0 auto;overflow:hidden}#doc{transform-origin:0 0}
-.doc{width:210mm;color:#111;font:14px/1.45 "Tinos","Times New Roman",Georgia,serif}
+.doc{-webkit-text-size-adjust:100%;text-size-adjust:100%;width:210mm;color:#111;font:14px/1.45 "Tinos","Times New Roman",Georgia,serif}
 .page{display:block;background:#fff;width:210mm;height:297mm;padding:12mm 13mm;margin:0;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.3)}.pc{display:flow-root}.pc>:first-child{margin-top:0}
 #ms{position:absolute;left:-10000px;top:0;visibility:hidden;pointer-events:none}
 .pn{text-align:center;font:12px system-ui,sans-serif;color:var(--mut);margin:4px 0 14px}.zc{display:flex;gap:8px;align-items:center;margin-bottom:8px}.zc button{padding:8px 14px;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:8px;font:inherit}.zc span{min-width:52px;text-align:center}.doc h3{text-align:center;font-size:1.21em;margin:0 0 14px;letter-spacing:.5px}
@@ -117,17 +117,20 @@ return '<h3>TAHLİYE TAAHHÜTNAMESİ</h3>'+
 '<p>İş bu taahhütname '+v("city")+ek(S.city,"lok")+' '+v("date",dt)+' tarihinde düzenlenmiş ve imzalanmıştır.</p>'+
 sig("Taahhüt eden (kiracı)<br>"+esc(S.tName||""),"Kiraya veren<br>"+esc(S.lName||""))}
 function iso(x){var m=/^(\d{1,2})[.\/](\d{1,2})[.\/](\d{4})$/.exec((x||"").trim());return m?m[3]+"-"+("0"+m[2]).slice(-2)+"-"+("0"+m[1]).slice(-2):(x||"")}
-var FS=[14,13.8,13.6,13.4];
+var FS=[14,13.8,13.6,13.4],KB=1;
+// Android "yazı boyutu" ayarı metni büyütürse oranı ölç (canvas bundan etkilenmez) ve A4 belgede geri al
+function boost(){try{if(!document.fonts||!document.fonts.check('14px "Tinos"'))return 1;var t="Kiracı kiralananı özenle kullanmak zorundadır. Kiralanan alt kiraya verilemez.",ms=$("#ms");ms.innerHTML='<span style="font:14px Tinos;white-space:nowrap">'+t+"</span>";var w=ms.firstChild.getBoundingClientRect().width;ms.innerHTML="";var c=document.createElement("canvas").getContext("2d");c.font='14px Tinos';var e=c.measureText(t).width,k=w/e;return e>0&&k>1.02&&k<1.6?k:1}catch(x){return 1}}
+function fsz(f){return Math.round(f/KB*100)/100}
 // Her bölümü gerçek A4 sayfalarına böler: bloklar ekranda ölçülür, sığmayan blok sonraki sayfaya geçer.
 function paginate(html){
 var ms=$("#ms"),src=document.createElement("div"),out=[],pg,pc,lim;src.innerHTML=html;
 function np(){ms.innerHTML='<section class="page"><div class="pc"></div></section>';pg=ms.firstChild;pc=pg.firstChild;var cs=getComputedStyle(pg);lim=pg.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom)-6}
 function over(){return pc.offsetHeight>lim}
-function flush(){out.push({h:pc.innerHTML,fs:FS[0]});np();pc.style.fontSize=FS[0]+"px"}
+function flush(){out.push({h:pc.innerHTML,fs:fsz(FS[0])});np();pc.style.fontSize=fsz(FS[0])+"px"}
 function splitTable(t){var rows=[].slice.call(t.rows);pc.removeChild(t);while(rows.length){var part=t.cloneNode(false),tb=document.createElement("tbody"),n=0;part.appendChild(tb);pc.appendChild(part);while(rows.length){tb.appendChild(rows[0]);if(over()&&(n>0||pc.childNodes.length>1)){tb.removeChild(rows[0]);break}rows.shift();n++}if(!n)pc.removeChild(part);if(rows.length)flush()}}
-np();if(!(lim>100)){ms.innerHTML="";return [{h:html,fs:FS[0]}]}
-for(var i=0;i<FS.length;i++){pc.style.fontSize=FS[i]+"px";pc.innerHTML=html;if(!over()){var one=pc.innerHTML;ms.innerHTML="";return [{h:one,fs:FS[i]}]}}
-pc.innerHTML="";pc.style.fontSize=FS[0]+"px";
+np();if(!(lim>100)){ms.innerHTML="";return [{h:html,fs:fsz(FS[0])}]}
+for(var i=0;i<FS.length;i++){pc.style.fontSize=fsz(FS[i])+"px";pc.innerHTML=html;if(!over()){var one=pc.innerHTML;ms.innerHTML="";return [{h:one,fs:fsz(FS[i])}]}}
+pc.innerHTML="";pc.style.fontSize=fsz(FS[0])+"px";
 [].slice.call(src.childNodes).forEach(function(el){
 if(el.nodeType!=1){if(!el.textContent.trim())return;var p=document.createElement("p");p.appendChild(el);el=p}
 pc.appendChild(el);if(!over())return;
@@ -135,8 +138,8 @@ if(el.tagName=="TABLE")return splitTable(el);
 if(pc.childNodes.length<2)return;
 pc.removeChild(el);var keep=[];if(el.classList.contains("sgb")&&pc.childNodes.length>1&&pc.lastChild.tagName=="P")keep.push(pc.removeChild(pc.lastChild));while(pc.childNodes.length>1&&/^H[1-6]$/.test(pc.lastChild.tagName))keep.unshift(pc.removeChild(pc.lastChild));
 flush();keep.forEach(function(k){pc.appendChild(k)});pc.appendChild(el)});
-out.push({h:pc.innerHTML,fs:FS[0]});ms.innerHTML="";return out}
-function pages(h){var all=[];h.split(SEP).forEach(function(s){all=all.concat(paginate(s))});var n=all.length;return all.map(function(x,i){return '<section class="page"><div class="pc" style="font-size:'+x.fs+'px">'+x.h+'</div></section><div class="pn">Sayfa '+(i+1)+' / '+n+'</div>'}).join("")}
+out.push({h:pc.innerHTML,fs:fsz(FS[0])});ms.innerHTML="";return out}
+function pages(h){KB=boost();var all=[];h.split(SEP).forEach(function(s){all=all.concat(paginate(s))});var n=all.length;return all.map(function(x,i){return '<section class="page"><div class="pc" style="font-size:'+x.fs+'px">'+x.h+'</div></section><div class="pn">Sayfa '+(i+1)+' / '+n+'</div>'}).join("")}
 var Zm=1,auto=true;
 function setZ(z){Zm=Math.max(.3,Math.min(2,z));var d=$("#doc"),w=$("#dw");d.style.transform="scale("+Zm+")";w.style.width=d.offsetWidth*Zm+"px";w.style.height=d.offsetHeight*Zm+"px";$("#zp").textContent=Math.round(Zm*100)+"%"}
 function fit(){auto=true;setZ(($("#pv").clientWidth-6)/$("#doc").offsetWidth)}
